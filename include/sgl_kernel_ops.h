@@ -714,7 +714,7 @@ void embedding_lora_a_fwd(
  * Mamba causal conv1d (XPU)
  */
 void causal_conv1d_fwd(
-    const at::Tensor& x,
+    at::Tensor& x,
     const at::Tensor& weight,
     const std::optional<at::Tensor>& bias_,
     const std::optional<at::Tensor>& conv_states,
@@ -725,8 +725,8 @@ void causal_conv1d_fwd(
     int64_t pad_slot_id);
 
 void causal_conv1d_update(
-    const at::Tensor& x,
-    const at::Tensor& conv_state,
+    at::Tensor& x,
+    at::Tensor& conv_state,
     const at::Tensor& weight,
     const std::optional<at::Tensor>& bias_,
     bool silu_activation,
